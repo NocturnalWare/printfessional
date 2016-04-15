@@ -3,7 +3,7 @@
     <head>
         <title>Laravel</title>
 
-        <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
+        <link href='https://fonts.googleapis.com/css?family=Alegreya+Sans' rel='stylesheet' type='text/css'>
 
         <style>
             html, body {
@@ -16,7 +16,7 @@
                 width: 100%;
                 display: table;
                 font-weight: 100;
-                font-family: 'Lato';
+                font-family: 'Alegreya Sans', sans-serif;
             }
 
             .container {
@@ -38,7 +38,7 @@
     <body>
         <div class="container">
             <div class="content">
-                <div class="title">Welcome to Printfessional -- A Service for printing services.</div>
+                <div class="title">Welcome to Printfessional <br> A new service for printing services.</div>
             </div>
         </div>
     </body>
