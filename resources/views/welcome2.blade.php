@@ -75,7 +75,7 @@
                         <span class="col-sm-1" style="padding:10px;background-color:{{$ex}}">{{$ex}}</span>
                     @endforeach
                     <br>
-                    <img class="img-responsive" src="../public/bar.jpg" style="margin-top:25px"></img>
+                    <img class="img-responsive" src="http://printfessional.com/images/bar.jpg" style="margin-top:25px"></img>
                 </center>
             </div>
         </div>

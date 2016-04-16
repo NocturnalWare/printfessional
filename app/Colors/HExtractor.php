@@ -37,7 +37,7 @@ class HExtractor{
 		};
 
 		$printimage = $userImage->limitColors($max, $hexColors[2]);
-		$printimage->save('../public/bar.jpg');
+		$printimage->save('../public/images/bar.jpg');
 		
 		return $hexColors;
 	}
