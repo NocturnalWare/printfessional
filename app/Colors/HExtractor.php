@@ -9,11 +9,11 @@ use League\ColorExtractor\Palette;
 
 class HExtractor{
 	
-	public function findColors($url, $max){
+	public function findColors($userImage, $max){
 		if($max < 3){
 			$max = 3;
 		}
-		$userImage = \Image::make($url);
+		
 		$palette = Palette::fromGD($userImage->getCore());
 		// $palette is an iterator on colors sorted by pixel count
 

@@ -41,7 +41,16 @@ class ColorController extends Controller
     public function store(Request $request)
     {
         $extraction = new HExtractor;
-        $extraction = $extraction->findColors($request->input('url'), $request->input('count'));
+        if($request->input('url')){
+            $userImage = \Image::make($request->input('url'));
+            $extraction = $extraction->findColors($userImage, $request->input('count'));
+        }
+
+        if($request->file('photo')){
+            $userImage = \Image::make($request->file('photo'));
+            $extraction = $extraction->findColors($userImage, $request->input('count'));
+        }
+
         return view('welcome2', compact('extraction', 'request'));
     }
 

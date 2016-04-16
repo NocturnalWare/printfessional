@@ -56,14 +56,18 @@
     <body>
         <div class="container">
             <div class="col-sm-12">
-                <form action="{{route('color.store')}}" method="post" class="col-sm-offset-3 col-sm-6 form-inline well">
+                <form action="{{route('color.store')}}" enctype="multipart/form-data" method="post" class="col-sm-offset-3 col-sm-6 form-inline well">
                     <input type="hidden" value="{{csrf_token()}}" name="_token">
+                        <label class="pull-left">Upload Photo</label>
                     <span class="input-group col-sm-12">
-                        <label class="pull-right">Image URL</label>
+                        <input type="file" name="photo">
+                    </span>
+                    <span class="input-group col-sm-12">
+                        <label class="pull-left">Image URL</label>
                         <input name="url" placeholder="http://" value="{{$request->input('url')}}" class="form-control pull-right">
                     </span>
                     <span class="input-group col-sm-12">
-                        <label class="pull-right">Max Colors (Minimum 3)</label>
+                        <label class="pull-left">Max Colors (Minimum 3)</label>
                         <input name="count" placeholder="Max Colors" class="form-control pull-right" value="{{$request->input('count')}}">
                     </span>
                     <button class="col-sm-offset-3 col-sm-6 btn btn-success pull-right" type="submit">Show me new Colors!</button>
