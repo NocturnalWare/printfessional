@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Welcome to PrintFessional</title>
+        <title>Colorerer by PrintFessional</title>
 
         <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
@@ -55,51 +55,30 @@
     </head>
     <body>
         <div class="container">
-            <div class="content row">
-                <div class="title ">Welcome to PrintFessional</div>
-                 <div class="title">Serving Printing Services Soon</div>
-            </div>
-            <div class="row" style="margin-top:-9em">
-                <i class="col-sm-8 pull-right fa fa-caret-down" style="color:#000;font-size:20em;"></i>
-            </div>
-
-            <div class="col-sm-12" style="padding-bottom:5em;">
+            <div class="col-sm-12">
                 <form action="{{route('color.store')}}" method="post" class="col-sm-offset-3 col-sm-6 form-inline well">
                     <input type="hidden" value="{{csrf_token()}}" name="_token">
                     <span class="input-group col-sm-12">
                         <label class="pull-right">Image URL</label>
-                        <input name="url" placeholder="http://" class="form-control pull-right">
+                        <input name="url" placeholder="http://" value="{{$request->input('url')}}" class="form-control pull-right">
                     </span>
                     <span class="input-group col-sm-12">
                         <label class="pull-right">Max Colors (Minimum 3)</label>
-                        <input name="count" placeholder="Max Colors" class="form-control pull-right">
+                        <input name="count" placeholder="Max Colors" class="form-control pull-right" value="{{$request->input('count')}}">
                     </span>
                     <button class="col-sm-offset-3 col-sm-6 btn btn-success pull-right" type="submit">Show me new Colors!</button>
                 </form>
             </div>
-
-            <div class="col-sm-12">
-                <div class="col-xs-5 featureicon" style="margin-top:-1em;margin-left:5%;">
-                    <label style="font-size:.5em">Users</label><br>
-                    <i class="fa fa-users" style="font-size:2em"></i>
-                </div>
-                <div class="col-xs-5 featureicon" style="margin-top:-1em;margin-left:5%;">
-                    <label style="font-size:.5em">Communication</label><br>
-                    <i class="fa fa-comments" style="font-size:2em"></i>
-                </div>
+            <div class="col-sm-offset-3 col-sm-6">
+                <center>
+                    @foreach($extraction as $ex)
+                        <span class="col-sm-1" style="padding:10px;background-color:{{$ex}}">{{$ex}}</span>
+                    @endforeach
+                    <br>
+                    <img class="img-responsive" src="../public/bar.jpg" style="margin-top:25px"></img>
+                </center>
             </div>
-
-            <div class="col-sm-12" style="padding-top:5em;padding-bottom:5em;">
-                <div class="col-xs-5 featureicon" style="margin-top:-1em;margin-left:5%;">
-                    <label style="font-size:.5em">Orders</label><br>
-                    <i class="fa fa-gift" style="font-size:2em"></i>
-                </div>
-                <div class="col-xs-5 featureicon" style="margin-top:-1em;margin-left:5%;">
-                    <label style="font-size:.5em">Shipping</label><br>
-                    <i class="fa fa-rocket" style="font-size:2em"></i>
-                </div>
-            </div>
-
+        </div>
     </body>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
